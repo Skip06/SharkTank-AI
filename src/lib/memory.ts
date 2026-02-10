@@ -5,7 +5,7 @@ import 'dotenv/config'
 
 const client = new Supermemory({apiKey: process.env.SUPERMEMORY_API})
 
-async function getMarketContext(pitch: string) {
+export async function getMarketContext(pitch: string) {
   const response = await client.search.memories({ q: pitch })
   return response.results.map(r => r.memory || r.chunk || '').join("\n")
 }
