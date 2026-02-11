@@ -11,5 +11,5 @@ const workFlow = new StateGraph(sharkTankState)
   .addEdge('asneer','amaan')
   .addEdge('amaan','__end__')
   
-  .compile()// just need to compile every node
+export const sharkTank = workFlow.compile()// just need to compile every node
 
