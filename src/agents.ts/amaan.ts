@@ -11,12 +11,12 @@ const amaanResponseSchema = z.object({
     roast:z.string().describe('This is the data which asneer uses to roast the pitch')
 })
 
-const amaanNode = async (state: typeof sharkTankState.State) =>{
+export const amaanNode = async (state: typeof sharkTankState.State) =>{
   const dataContext = await getMarketContext(state.pitch)
 
   //vercel ai sdk to generate responsse from llm
   const result = await generateText({
-    model: groq('gemma2-9b-it'),
+    model: groq('llama-3.3-70b-versatile'),
     prompt: `You are Amaan Gupta from Shark Tank India -Pitch: ${state.pitch},Market Context: ${dataContext}
 
     Analyze this pitch and respond in Amaan's characteristic style. Be honest about whether you're interested or not.`,

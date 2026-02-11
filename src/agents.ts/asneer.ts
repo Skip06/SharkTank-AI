@@ -11,7 +11,7 @@ const asneerResponseSchema = z.object({
     roast:z.string().describe('This is the data which asneer uses to roast the pitch')
 })
 
-const asneerNode = async (state: typeof sharkTankState.State) =>{
+export const asneerNode = async (state: typeof sharkTankState.State) =>{
   const dataContext = await getMarketContext(state.pitch)
 
   //vercel ai sdk to generate responsse from llm
