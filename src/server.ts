@@ -16,7 +16,6 @@ app.post('/pitch', async (req, res) => {
     res.json({
       asneer: state.asneerResponse,
       amaan: state.amaanResponse,
-      transcript: state.messages.map((m: any) => m.content),
       status: state.sharksOut.length > 0 ? "Some sharks left!" : "Negotiations continue..."
     });
   } catch (error) {
