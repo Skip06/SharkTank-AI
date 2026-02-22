@@ -6,12 +6,13 @@ const app = express()
 app.use(express.json())
 
 app.post('/pitch', async (req, res) => {
-  const { pitch, sessionId, response } = req.body
+  const { pitch, thread_id, response } = req.body
   const inputMsg = response || pitch
-  const config = { configurable: { sessionId: sessionId || "default-room" } };
+  const config = { configurable: { thread_id: thread_id || "default-room" } };
   try {
     const state = await sharkTank.invoke({ // we are invoking the graph w initial state
       messages: [new HumanMessage(inputMsg)],
+      pitch: inputMsg,
     }, config)
 
     res.json({
